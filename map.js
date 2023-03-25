@@ -11,11 +11,7 @@ var marker = L.marker([34.7252, -86.6405],
 .bindPopup('UAH');
 
 map.on('locationfound',(e)=>{
-    L.marker(e.latlng).addTo(map).bindPopup("Your location");
+    L.marker(e.latlng,{icon: L.icon({iconUrl: "./Assets/youAreHere.png", iconSize: [21,21]})}).addTo(map).bindPopup("Your location");
     userLocation = e.latlng;
-    alert(userLocation);
 });
 map.on('locationerror',(e)=>alert(e.message));
-
-
-
