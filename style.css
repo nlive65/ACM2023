@@ -1,1 +1,5 @@
-#map { height: 350px; }
+#map { 
+    height: 350px; 
+    margin: auto;
+    
+}
