@@ -2,7 +2,6 @@
 const locationHash = new Map();
 locationHash.set("SSB", [34.7252, -86.6405]);
 locationHash.set("NCH", [34.733717, -86.640018]);
-locationHash.set("NCH",[34.733717, -86.640018]);
 locationHash.set("NUR", [34.730075, -86.638686]);
 locationHash.set("OKT", [34.719024, -86.646399]);
 locationHash.set("OPB", [34.722765, -86.638527]);
@@ -24,13 +23,13 @@ locationHash.set("FF",[34.733272, -86.640775]);
 locationHash.set("MOR",[34.733193, -86.641912]);
 locationHash.set("MSB", [34.721949, -86.638094]);
 
-var map = L.map('map').setView([34.7252, -86.6405], 14);
-
+var map = L.map('map',{zoomControl: false}).setView([34.7252, -86.6405], 14);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     minZoom: 14,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
+
 
 // location markers
 var ssb = L.marker([34.7252, -86.6405],
@@ -100,26 +99,22 @@ var msb = L.marker([34.721949, -86.638094],
     {alt: 'MSB'}).addTo(map)
     .bindPopup('Material Science Building (MSB)');
 
-// map.locate({setView: true, maxZoom:19});
+ map.locate({setView: true, maxZoom:19});
 
 map.on('locationfound',(e)=>{ //Callback for when the location is found 
     L.marker(e.latlng,{icon: L.icon({iconUrl: "./assets/youAreHere.png", iconSize: [21,21]})}).addTo(map).bindPopup("Your location");//Put you on the map :D
     userLocation = [e.latlng.lat,e.latlng.lng];//save the coordinates to a variable
     closest = "SSB";
-    for(let [key, value] of locationHash){
+    for(let [key, value] of locationHas){
         if(key==="SSB"){
-            min = ((userLocation[0]-value[0])**2+(userLocation[1]-value[1])**2)**(0.5);
+            min = ((userLocation[0]-value[0])**2+(Math.abs(userLocation[1])-Math.abs(value[1]))**2)**(0.5);
         } 
         else{
-            if(Math.min(min,((userLocation[0]-value[0])**2+(userLocation[1]-value[1])**2)**(0.5))!=min){
+            if(Math.min(min,((userLocation[0]-value[0])**2+(Math.abs(userLocation[1])-Math.abs(value[1]))**2)**(0.5))!=min){
                 min =((userLocation[0]-value[0])**2+(userLocation[1]-value[1])**2)**(0.5);
                 closest = key;
             }
-            console.log(closest);
         }
-       
-        
-
     }
     
 });
