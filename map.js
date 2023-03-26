@@ -34,13 +34,13 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // location markers
 var ssb = L.marker([34.7252, -86.6405],
     {alt: 'SSB'}).addTo(map)
-    .bindPopup('Student Services Building (SSB) <br> 1 location');
+    .bindPopup('Student Services Building (SSB)<br>1 location');
 var nch = L.marker([34.733717, -86.640018],
     {alt: 'NCH'}).addTo(map)
     .bindPopup('North Campus Housing (NCH)');
 var nur = L.marker([34.730075, -86.638686],
     {alt: 'NUR'}).addTo(map)
-    .bindPopup('Nursing Building (NUR)');
+    .bindPopup('Nursing Building (NUR)<br>locations not yet available');
 var okt = L.marker([34.719024, -86.646399],
     {alt: 'OKT'}).addTo(map)
     .bindPopup('Olin B. King Technology Hall (OKT)');
@@ -79,7 +79,7 @@ var ctc = L.marker([34.7308, -86.641401],
     .bindPopup('Conference Training Center (CTC)');
 var cu = L.marker([34.72713, -86.640046],
     {alt: 'CU'}).addTo(map)
-    .bindPopup('Charger Union (CU)');
+    .bindPopup('Charger Union (CU)<br>2 locations');
 var cva = L.marker([34.724393, -86.638828],
     {alt: 'CVA'}).addTo(map)
     .bindPopup('Charger Village Aditional (CVA)');
@@ -115,23 +115,12 @@ map.on('locationfound',(e)=>{ //Callback for when the location is found
                 closest = key;
             }
         }
-    }
-    
+    }  
 });
 
 map.on('locationerror',(e)=>alert(e.message));
 
-ssb.on('click', function() {
-    console.log("clicked ssb");
-    var img = new Image();
-    img.src = 'assets/station-photos/SSB1.png';
-    var info_box = document.getElementById("info");
-    info_box.innerHTML = "<h3>Student Services Building</h3><br><b>First Floor</b><br>Temperature: cool<br>Filter Status: green";
-    info_box.appendChild(img);
-    map.on('click', function() {
-        document.getElementById("info").innerHTML = "";
-    })
-});
+ssb.on('click', function() {onClick("ssb")});
 nch.on('click', function() {console.log("clicked nch");});
 nur.on('click', function() {console.log("clicked nur");});
 okt.on('click', function() {console.log("clicked okt");});
@@ -145,7 +134,7 @@ wil.on('click', function() {console.log("clicked wil");});
 bev.on('click', function() {console.log("clicked bev");});
 cch.on('click', function() {console.log("clicked cch");});
 ctc.on('click', function() {console.log("clicked ctc");});
-cu.on('click', function() {console.log("clicked cu");});
+cu.on('click', function() {onClick("cu");});
 cva.on('click', function() {console.log("clicked cva");});
 cvo.on('click', function() {console.log("clicked cvo");});
 eng.on('click', function() {console.log("clicked eng");});
@@ -153,3 +142,32 @@ ffh.on('click', function() {console.log("clicked ffh");});
 mor.on('click', function() {console.log("clicked mor");});
 msb.on('click', function() {console.log("clicked msb");});
 bab.on('click', function() {console.log("clicked bab");});
+
+function onClick(name) {
+    if (name === "ssb")
+    {
+        console.log("clicked ssb");
+        var img = new Image();
+        img.src = 'assets/station-photos/SSB1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Student Services Building</h3><br><b>First Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img);
+    }
+    else if (name === "cu")
+    {
+        console.log("clicked cu");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/CU1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Charger Union</h3><br><b>First Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img1);
+        var img2 = document.createElement('img');
+        img2.src = 'assets/station-photos/CU2.png';
+        info_box.innerHTML += "<br><b>Second Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img2);
+    }
+    // other else if statements here
+    map.on('click', function() {
+        document.getElementById("info").innerHTML = "";
+    })
+}
