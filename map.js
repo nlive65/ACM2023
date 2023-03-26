@@ -30,6 +30,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
+
 // location markers
 var ssb = L.marker([34.7252, -86.6405],
     {alt: 'SSB'}).addTo(map)
@@ -186,7 +187,7 @@ map.on('locationfound',(e)=>{ //Callback for when the location is found
     L.marker(e.latlng,{icon: L.icon({iconUrl: "./assets/youAreHere.png", iconSize: [21,21]})}).addTo(map).bindPopup("Your location");//Put you on the map :D
     userLocation = [e.latlng.lat,e.latlng.lng];//save the coordinates to a variable
     closest = "SSB";
-    for(let [key, value] of locationHash){
+    for(let [key, value] of locationHas){
         if(key==="SSB"){
             min = ((userLocation[0]-value[0])**2+(Math.abs(userLocation[1])-Math.abs(value[1]))**2)**(0.5);
         } 
@@ -196,7 +197,6 @@ map.on('locationfound',(e)=>{ //Callback for when the location is found
                 closest = key;
             }
         }
-
     }
     
 });
