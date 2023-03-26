@@ -105,43 +105,45 @@ map.on('locationfound',(e)=>{ //Callback for when the location is found
     L.marker(e.latlng,{icon: L.icon({iconUrl: "./assets/youAreHere.png", iconSize: [21,21]})}).addTo(map).bindPopup("Your location");//Put you on the map :D
     userLocation = [e.latlng.lat,e.latlng.lng];//save the coordinates to a variable
     closest = "SSB";
-    for(let [key, value] of locationHas){
+    for(let [key, value] of locationHash){
         if(key==="SSB"){
             min = ((userLocation[0]-value[0])**2+(Math.abs(userLocation[1])-Math.abs(value[1]))**2)**(0.5);
         } 
         else{
-            if(Math.min(min,((userLocation[0]-value[0])**2+(Math.abs(userLocation[1])-Math.abs(value[1]))**2)**(0.5))!=min){
-                min =((userLocation[0]-value[0])**2+(userLocation[1]-value[1])**2)**(0.5);
+            if(Math.min(min,((userLocation[0]-value[0])**2+(Math.abs(userLocation[1])-Math.abs(value[1]))**2)**(0.5))<min){
+                min =((userLocation[0]-value[0])**2+((Math.abs(userLocation[1])-Math.abs(value[1]))**2))**(0.5);
                 closest = key;
             }
         }
+        console.log(closest);
+        onClick(closest.toLowerCase());
     }  
 });
 
 map.on('locationerror',(e)=>alert(e.message));
 
 ssb.on('click', function() {onClick("ssb")});
-nch.on('click', function() {console.log("clicked nch");});
-nur.on('click', function() {console.log("clicked nur");});
-okt.on('click', function() {console.log("clicked okt");});
-opb.on('click', function() {console.log("clicked opb");});
-rob.on('click', function() {console.log("clicked rob");});
-lib.on('click', function() {console.log("clicked lib");});
-spr.on('click', function() {console.log("clicked spr");});
-sst.on('click', function() {console.log("clicked sst");});
-ufc.on('click', function() {console.log("clicked ufc");});
-wil.on('click', function() {console.log("clicked wil");});
-bev.on('click', function() {console.log("clicked bev");});
-cch.on('click', function() {console.log("clicked cch");});
-ctc.on('click', function() {console.log("clicked ctc");});
+nch.on('click', function() {onClick("nch");});
+nur.on('click', function() {onClick("nur");});
+okt.on('click', function() {onClick("okt");});
+opb.on('click', function() {onClick("opb");});
+rob.on('click', function() {onClick("rob");});
+lib.on('click', function() {onClick("lib");});
+spr.on('click', function() {onClick("spr");});
+sst.on('click', function() {onClick("sst");});
+ufc.on('click', function() {onClick("ufc");});
+wil.on('click', function() {onClick("wil");});
+bev.on('click', function() {onClick("bev");});
+cch.on('click', function() {onClick("cch");});
+ctc.on('click', function() {onClick("ctc");});
 cu.on('click', function() {onClick("cu");});
-cva.on('click', function() {console.log("clicked cva");});
-cvo.on('click', function() {console.log("clicked cvo");});
-eng.on('click', function() {console.log("clicked eng");});
-ffh.on('click', function() {console.log("clicked ffh");});
-mor.on('click', function() {console.log("clicked mor");});
-msb.on('click', function() {console.log("clicked msb");});
-bab.on('click', function() {console.log("clicked bab");});
+cva.on('click', function() {onClick("cva");});
+cvo.on('click', function() {onClick("cvo");});
+eng.on('click', function() {onClick("eng");});
+ffh.on('click', function() {onClick("ffh");});
+mor.on('click', function() {onClick("mor");});
+msb.on('click', function() {onClick("msb");});
+bab.on('click', function() {onClick("bab");});
 
 function onClick(name) {
     if (name === "ssb")
@@ -165,6 +167,222 @@ function onClick(name) {
         img2.src = 'assets/station-photos/CU2.png';
         info_box.innerHTML += "<br><b>Second Floor</b><br>Temperature: cool<br>Filter Status: green";
         info_box.appendChild(img2);
+    }
+    else if (name === "bab")
+    {
+        console.log("clicked bab");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/BAB1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Business Administration Building </h3><br><b>First Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img1);
+        var img2 = document.createElement('img');
+        img2.src = 'assets/station-photos/BAB2.png';
+        info_box.innerHTML += "<br><b>Second Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img2);
+    }
+    else if (name === "bev")
+    {
+        console.log("clicked bev");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/BAB1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Bevill Center </h3><br><b>No Locations Yet</b>";
+    }
+    else if (name === "cch")
+    {
+        console.log("clicked cch");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/BAB1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Central Campus Residence Hall </h3><br><b>No Locations Yet</b>";
+    }
+    else if (name === "ctc")
+    {
+        console.log("clicked ctc");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/CTC-caf.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Conference Training Center </h3><br><b>First Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img1);
+    }
+    else if (name === "mor")
+    {
+        console.log("clicked mor");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/MOR0.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Morton Hall</h3><br><b>Basement</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img1);
+        var img2 = document.createElement('img');
+        img2.src = 'assets/station-photos/MOR1.png';
+        info_box.innerHTML += "<br><b>First Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img2);
+        var img3 = document.createElement('img');
+        img3.src = 'assets/station-photos/MOR250.png';
+        info_box.innerHTML += "<br><b>Second Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img3);
+    }
+    else if (name === "wil")
+    {
+        console.log("clicked wil");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/Wil1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Wilson Hall </h3><br><b>First Floor</b><br>Temperature: warm<br>Filter Status: green";
+        info_box.appendChild(img1);
+        var img2 = document.createElement('img');
+        img2.src = 'assets/station-photos/Wil1.png';
+        info_box.innerHTML += "<br><b>Second Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img2);
+    }
+    else if (name === "spr")
+    {
+        console.log("clicked spr");
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Spragins Hall</h3><br><b>No Locations Yet</b>";
+    }
+    else if (name === "nch")
+    {
+        console.log("clicked ctc");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/NORTH1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>North Campus Housing</h3><br><b>First Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img1);
+    }
+    else if (name === "sst")
+    {
+        console.log("clicked sst");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/SST109.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Shelby Center for Science and Technology</h3><br><b>First Floor - Room 109</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img1);
+    }
+    else if (name === "ufc")
+    {
+        console.log("clicked ufc");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/UFC1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Unvierstiy Fitness Center</h3><br><b>First Floor</b><br>Temperature: Right - Cold, Left - cool<br>Filter Status: green";
+        info_box.appendChild(img1);
+    }
+    else if (name === "cva")
+    {
+        console.log("clicked cva");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/CVA1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Charger Village Additional</h3><br><b>First Floor</b><br>Temperature: warm<br>Filter Status: green";
+        info_box.appendChild(img1);
+        var img2 = document.createElement('img');
+        img2.src = 'assets/station-photos/CVA2.png';
+        info_box.innerHTML += "<br><b>Second Floor - Fifth Floor</b><br>Temperature: warm<br>Filter Status: green";
+        info_box.appendChild(img2);
+    }
+    else if (name === "cvo")
+    {
+        console.log("clicked cvo");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/CVO1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Charger Village Original</h3><br><b>First Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img1);
+    }
+    else if (name === "lib")
+    {
+        console.log("clicked lib");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/lib1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Salmon Library</h3><br><b>First Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img1);
+        var img2 = document.createElement('img');
+        img2.src = 'assets/station-photos/lib1SSC.png';
+        info_box.innerHTML += "<br><b>First Floor - SSC</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img2);
+        var img2 = document.createElement('img');
+        img2.src = 'assets/station-photos/lib2.png';
+        info_box.innerHTML += "<br><b>Second Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img2);
+        var img2 = document.createElement('img');
+        img2.src = 'assets/station-photos/lib2s.png';
+        info_box.innerHTML += "<br><b>Second Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img2);
+        var img2 = document.createElement('img');
+        img2.src = 'assets/station-photos/lib3.png';
+        info_box.innerHTML += "<br><b>Third Floor</b><br>Temperature: warm<br>Filter Status: green";
+        info_box.appendChild(img2);
+    }
+    else if (name === "rob")
+    {
+        console.log("clicked rob");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/ROB1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Roberts Hall</h3><br><b>First Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img1);
+        var img2 = document.createElement('img');
+        img2.src = 'assets/station-photos/ROB3.png';
+        info_box.innerHTML += "<br><b>Third Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img2);
+        var img2 = document.createElement('img');
+        img2.src = 'assets/station-photos/ROB4.png';
+        info_box.innerHTML += "<br><b>Fourth Floor</b><br>Temperature: cool<br>Filter Status: red";
+        info_box.appendChild(img2);
+    }
+    else if (name ==="opb")
+    {
+        console.log("clicked opb");
+        var img1 = document.createElement('img');
+        img1.src= 'assets/station-photos/optics113.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Optics Building</h3><br><b>First floor near 113<br>Temperature: Warm<br>Filter Status: green";
+        info_box.appendChild(img1);
+        var img2 = document.createElement('img');
+        img2.src = 'assets/station-photos/optics128.png';
+        info_box.innerHTML += "<br><b>First floor near 128<br>Temperature:Warm<br>Filter Status: green";
+        info_box.appendChild(img2)
+    }
+    else if (name==="msb")
+    {
+        console.log("clicked msb");
+        var img1 = document.createElement('img');
+        img1.src= 'assets/station-photos/MSB1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Material Science Building</h3><br><b>First floor<br>Temperature: Cool<br>Filter Status: green";
+        info_box.appendChild(img1);
+    }
+    else if(name === "okt"){
+        console.log("clicked okt");
+        var img1 = document.createElement('img');
+        img1.src= 'assets/station-photos/OKT104.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Olin B King Technology Hall</h3><br><b>First floor<br>Temperature: Cool<br>Filter Status: yellow";
+        info_box.appendChild(img1);
+    }
+    else if(name==="eng"){
+        console.log("clicked opb");
+        var img1 = document.createElement('img');
+        img1.src= 'assets/station-photos/ENG1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Engineering Building</h3><br><b>First floor<br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img1);
+    }
+    else if(name==='nur'){
+        console.log("clicked opb");
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Nursing Building</h3><br><b>No locations Avaliable";
+    }
+    else if(name==='ff'){
+        console.log("clicked ff");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/FRANZ1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML="<h3>Frank Franz Residence Hall</h3><br><b>First floor<br>Temperature: warm<br>Filter Status: green";
+        
     }
     // other else if statements here
     map.on('click', function() {
