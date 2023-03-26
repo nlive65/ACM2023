@@ -8,12 +8,17 @@ body {
     flex-direction: column;
     color: black;
     background: white;
+    /* overflow: hidden; */
 }
+
 .Container{
     width: 100%;
     height: 100%;
     position: relative;
+    padding: 5px;
+    display: flex;
 }
+
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
 
 body {
@@ -40,6 +45,7 @@ p {
   background: linear-gradient(60deg, rgb(0,152,220,255) 0%, rgb(12, 107, 232) 100%);
   color:white;
 }
+
 .logo {
   width:50px;
   fill:white;
@@ -49,6 +55,7 @@ p {
 }
 
 .inner-header {
+  justify-content: center;
   height:15vh;
   width:100%;
   margin: 0;
@@ -121,21 +128,13 @@ p {
   }
 }
 
-.container {
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-}
-
 #map {
     height: 80vh;
-    width: 100%;
-    margin: auto;
-
-    
+    width: 100vw;
+    position: relative;
 }
 
-#borger{
+#borger {
     width: 20%;
     height: 80vh;
     border-color: black;
@@ -143,12 +142,15 @@ p {
     overflow-y: scroll; 
     position: absolute;
     z-index: 450;
-    
+    left: 5px;
 }
 
 #info {
+    overflow-y: scroll;
     padding-left: 1vh;
-    float: right;
+    height: 80vh;
+    margin-right: 0;
+    background-color: white;
 }
 
 img {
@@ -156,15 +158,6 @@ img {
     max-height: 50vh;
 }
 
-#info {
-    padding-left: 1vh;
-    float: right;
-}
-
-img {
-    max-width: 50vw;
-    max-height: 50vh;
-}
 
 #info {
     padding-left: 1vh;
@@ -172,21 +165,17 @@ img {
 }
 
 img {
-    max-width: 50vw;
+    max-width: 25vw;
     max-height: 50vh;
 }
 
-#info {
-    padding-left: 1vh;
-    float: right;
-}
-
-img {
-    max-width: 50vw;
-    max-height: 50vh;
-}
-
-table{
+table {
     border-spacing: 0 15px;
    
+}
+
+button {
+    border: 0;
+    background-color: white;
+    text-align: left;
 }
