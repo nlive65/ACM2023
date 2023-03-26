@@ -116,8 +116,9 @@ map.on('locationfound',(e)=>{ //Callback for when the location is found
             }
         }
         console.log(closest);
-        onClick(closest.toLowerCase());
+        
     }  
+    onClick(closest.toLowerCase());
 });
 
 map.on('locationerror',(e)=>alert(e.message));

@@ -1,5 +1,6 @@
 * {
     font-family: "Source Code Pro", monospace;
+   
 }
 
 body {
@@ -8,6 +9,7 @@ body {
     flex-direction: column;
     color: black;
     background: white;
+    overflow: hidden;
 }
 .Container{
     width: 100%;
