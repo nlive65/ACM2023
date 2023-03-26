@@ -24,8 +24,7 @@ locationHash.set("FF",[34.733272, -86.640775]);
 locationHash.set("MOR",[34.733193, -86.641912]);
 locationHash.set("MSB", [34.721949, -86.638094]);
 
-var map = L.map('map').setView([34.7252, -86.6405], 14);
-
+var map = L.map('map',{zoomControl: false}).setView([34.7252, -86.6405], 14);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     minZoom: 14,
@@ -190,17 +189,14 @@ map.on('locationfound',(e)=>{ //Callback for when the location is found
     closest = "SSB";
     for(let [key, value] of locationHash){
         if(key==="SSB"){
-            min = ((userLocation[0]-value[0])**2+(userLocation[1]-value[1])**2)**(0.5);
+            min = ((userLocation[0]-value[0])**2+(Math.abs(userLocation[1])-Math.abs(value[1]))**2)**(0.5);
         } 
         else{
-            if(Math.min(min,((userLocation[0]-value[0])**2+(userLocation[1]-value[1])**2)**(0.5))!=min){
+            if(Math.min(min,((userLocation[0]-value[0])**2+(Math.abs(userLocation[1])-Math.abs(value[1]))**2)**(0.5))!=min){
                 min =((userLocation[0]-value[0])**2+(userLocation[1]-value[1])**2)**(0.5);
                 closest = key;
             }
-            console.log(closest);
         }
-       
-        
 
     }
     
