@@ -121,27 +121,27 @@ map.on('locationfound',(e)=>{ //Callback for when the location is found
 map.on('locationerror',(e)=>alert(e.message));
 
 ssb.on('click', function() {onClick("ssb")});
-nch.on('click', function() {console.log("clicked nch");});
+nch.on('click', function() {onClick("nch");});
 nur.on('click', function() {console.log("clicked nur");});
 okt.on('click', function() {console.log("clicked okt");});
 opb.on('click', function() {console.log("clicked opb");});
 rob.on('click', function() {console.log("clicked rob");});
 lib.on('click', function() {console.log("clicked lib");});
-spr.on('click', function() {console.log("clicked spr");});
+spr.on('click', function() {onClick("spr");});
 sst.on('click', function() {console.log("clicked sst");});
 ufc.on('click', function() {console.log("clicked ufc");});
-wil.on('click', function() {console.log("clicked wil");});
-bev.on('click', function() {console.log("clicked bev");});
-cch.on('click', function() {console.log("clicked cch");});
-ctc.on('click', function() {console.log("clicked ctc");});
+wil.on('click', function() {onClick("wil");});
+bev.on('click', function() {onClick("bev");});
+cch.on('click', function() {onClick("cch");});
+ctc.on('click', function() {onClick("ctc");});
 cu.on('click', function() {onClick("cu");});
 cva.on('click', function() {console.log("clicked cva");});
 cvo.on('click', function() {console.log("clicked cvo");});
 eng.on('click', function() {console.log("clicked eng");});
 ffh.on('click', function() {console.log("clicked ffh");});
-mor.on('click', function() {console.log("clicked mor");});
+mor.on('click', function() {onClick("mor");});
 msb.on('click', function() {console.log("clicked msb");});
-bab.on('click', function() {console.log("clicked bab");});
+bab.on('click', function() {onClick("bab");});
 
 function onClick(name) {
     if (name === "ssb")
@@ -166,6 +166,90 @@ function onClick(name) {
         info_box.innerHTML += "<br><b>Second Floor</b><br>Temperature: cool<br>Filter Status: green";
         info_box.appendChild(img2);
     }
+    else if (name === "bab")
+    {
+        console.log("clicked bab");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/BAB1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Business Administration Building </h3><br><b>First Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img1);
+        var img2 = document.createElement('img');
+        img2.src = 'assets/station-photos/BAB2.png';
+        info_box.innerHTML += "<br><b>Second Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img2);
+    }
+    else if (name === "bev")
+    {
+        console.log("clicked bev");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/BAB1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Bevill Center </h3><br><b>No Locations Yet</b>";
+    }
+    else if (name === "cch")
+    {
+        console.log("clicked cch");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/BAB1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Central Campus Residence Hall </h3><br><b>No Locations Yet</b>";
+    }
+    else if (name === "ctc")
+    {
+        console.log("clicked ctc");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/CTC-caf.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Conference Training Center </h3><br><b>First Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img1);
+    }
+    else if (name === "mor")
+    {
+        console.log("clicked mor");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/MOR0.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Morton Hall</h3><br><b>Basement</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img1);
+        var img2 = document.createElement('img');
+        img2.src = 'assets/station-photos/MOR1.png';
+        info_box.innerHTML += "<br><b>First Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img2);
+        var img3 = document.createElement('img');
+        img3.src = 'assets/station-photos/MOR250.png';
+        info_box.innerHTML += "<br><b>Second Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img3);
+    }
+    else if (name === "wil")
+    {
+        console.log("clicked wil");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/Wil1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Wilson Hall </h3><br><b>First Floor</b><br>Temperature: warm<br>Filter Status: green";
+        info_box.appendChild(img1);
+        var img2 = document.createElement('img');
+        img2.src = 'assets/station-photos/Wil1.png';
+        info_box.innerHTML += "<br><b>Second Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img2);
+    }
+    else if (name === "spr")
+    {
+        console.log("clicked spr");
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Spragins Hall</h3><br><b>No Locations Yet</b>";
+    }
+    else if (name === "nch")
+    {
+        console.log("clicked ctc");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/NORTH1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>North Campus Housing</h3><br><b>First Floor</b><br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img1);
+    }
+
     // other else if statements here
     map.on('click', function() {
         document.getElementById("info").innerHTML = "";
