@@ -99,7 +99,7 @@ var msb = L.marker([34.721949, -86.638094],
     {alt: 'MSB'}).addTo(map)
     .bindPopup('Material Science Building (MSB)');
 
- map.locate({setView: true, maxZoom:19});
+//  map.locate({setView: true, maxZoom:19});
 
 map.on('locationfound',(e)=>{ //Callback for when the location is found 
     L.marker(e.latlng,{icon: L.icon({iconUrl: "./assets/youAreHere.png", iconSize: [21,21]})}).addTo(map).bindPopup("Your location");//Put you on the map :D
