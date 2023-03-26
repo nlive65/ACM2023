@@ -10,8 +10,24 @@ body {
     background: white;
 }
 
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
 #map {
     height: 80vh;
     width: 100%;
     margin: auto;
+}
+
+#info {
+    padding-left: 1vh;
+    float: right;
+}
+
+img {
+    max-width: 50vw;
+    max-height: 50vh;
 }
