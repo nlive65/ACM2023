@@ -166,6 +166,26 @@ img {
     max-height: 50vh;
 }
 
+#info {
+    padding-left: 1vh;
+    float: right;
+}
+
+img {
+    max-width: 50vw;
+    max-height: 50vh;
+}
+
+#info {
+    padding-left: 1vh;
+    float: right;
+}
+
+img {
+    max-width: 50vw;
+    max-height: 50vh;
+}
+
 table{
     border-spacing: 0 15px;
    
