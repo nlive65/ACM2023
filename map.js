@@ -105,16 +105,18 @@ map.on('locationfound',(e)=>{ //Callback for when the location is found
     L.marker(e.latlng,{icon: L.icon({iconUrl: "./assets/youAreHere.png", iconSize: [21,21]})}).addTo(map).bindPopup("Your location");//Put you on the map :D
     userLocation = [e.latlng.lat,e.latlng.lng];//save the coordinates to a variable
     closest = "SSB";
-    for(let [key, value] of locationHas){
+    for(let [key, value] of locationHash){
         if(key==="SSB"){
             min = ((userLocation[0]-value[0])**2+(Math.abs(userLocation[1])-Math.abs(value[1]))**2)**(0.5);
         } 
         else{
-            if(Math.min(min,((userLocation[0]-value[0])**2+(Math.abs(userLocation[1])-Math.abs(value[1]))**2)**(0.5))!=min){
-                min =((userLocation[0]-value[0])**2+(userLocation[1]-value[1])**2)**(0.5);
+            if(Math.min(min,((userLocation[0]-value[0])**2+(Math.abs(userLocation[1])-Math.abs(value[1]))**2)**(0.5))<min){
+                min =((userLocation[0]-value[0])**2+((Math.abs(userLocation[1])-Math.abs(value[1]))**2))**(0.5);
                 closest = key;
             }
         }
+        console.log(closest);
+        onClick(closest.toLowerCase());
     }  
 });
 
@@ -122,9 +124,9 @@ map.on('locationerror',(e)=>alert(e.message));
 
 ssb.on('click', function() {onClick("ssb")});
 nch.on('click', function() {onClick("nch");});
-nur.on('click', function() {console.log("clicked nur");});
-okt.on('click', function() {console.log("clicked okt");});
-opb.on('click', function() {console.log("clicked opb");});
+nur.on('click', function() {onClick("nur");});
+okt.on('click', function() {onClick("okt");});
+opb.on('click', function() {onClick("opb")});
 rob.on('click', function() {console.log("clicked rob");});
 lib.on('click', function() {console.log("clicked lib");});
 spr.on('click', function() {onClick("spr");});
@@ -137,10 +139,10 @@ ctc.on('click', function() {onClick("ctc");});
 cu.on('click', function() {onClick("cu");});
 cva.on('click', function() {console.log("clicked cva");});
 cvo.on('click', function() {console.log("clicked cvo");});
-eng.on('click', function() {console.log("clicked eng");});
+eng.on('click', function() {onClick("eng");});
 ffh.on('click', function() {console.log("clicked ffh");});
 mor.on('click', function() {onClick("mor");});
-msb.on('click', function() {console.log("clicked msb");});
+msb.on('click', function() {onClick("msb");});
 bab.on('click', function() {onClick("bab");});
 
 function onClick(name) {
@@ -250,6 +252,57 @@ function onClick(name) {
         info_box.appendChild(img1);
     }
 
+    else if (name ==="opb")
+    {
+        console.log("clicked opb");
+        var img1 = document.createElement('img');
+        img1.src= 'assets/station-photos/optics113.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Optics Building</h3><br><b>First floor near 113<br>Temperature: Warm<br>Filter Status: green";
+        info_box.appendChild(img1);
+        var img2 = document.createElement('img');
+        img2.src = 'assets/station-photos/optics128.png';
+        info_box.innerHTML += "<br><b>First floor near 128<br>Temperature:Warm<br>Filter Status: green";
+        info_box.appendChild(img2)
+    }
+    else if (name==="msb")
+    {
+        console.log("clicked msb");
+        var img1 = document.createElement('img');
+        img1.src= 'assets/station-photos/MSB1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Material Science Building</h3><br><b>First floor<br>Temperature: Cool<br>Filter Status: green";
+        info_box.appendChild(img1);
+    }
+    else if(name === "okt"){
+        console.log("clicked okt");
+        var img1 = document.createElement('img');
+        img1.src= 'assets/station-photos/OKT104.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Olin B King Technology Hall</h3><br><b>First floor<br>Temperature: Cool<br>Filter Status: yellow";
+        info_box.appendChild(img1);
+    }
+    else if(name==="eng"){
+        console.log("clicked opb");
+        var img1 = document.createElement('img');
+        img1.src= 'assets/station-photos/ENG1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Engineering Building</h3><br><b>First floor<br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img1);
+    }
+    else if(name==='nur'){
+        console.log("clicked opb");
+        var info_box = document.getElementById("info");
+        info_box.innerHTML = "<h3>Nursing Building</h3><br><b>No locations Avaliable";
+    }
+    else if(name==='ff'){
+        console.log("clicked ff");
+        var img1 = document.createElement('img');
+        img1.src = 'assets/station-photos/FRANZ1.png';
+        var info_box = document.getElementById("info");
+        info_box.innerHTML="<h3>Frank Franz Residence Hall</h3><br><b>First floor<br>Temperature: warm<br>Filter Status: green";
+        
+    }
     // other else if statements here
     map.on('click', function() {
         document.getElementById("info").innerHTML = "";
