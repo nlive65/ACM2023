@@ -111,7 +111,7 @@ map.on('locationfound',(e)=>{ //Callback for when the location is found
         } 
         else{
             if(Math.min(min,((userLocation[0]-value[0])**2+(Math.abs(userLocation[1])-Math.abs(value[1]))**2)**(0.5))<min){
-                min =((userLocation[0]-value[0])**2+(Math.abs(userLocation[1])-Math.abs(value[1]))**2)**(0.5);
+                min =((userLocation[0]-value[0])**2+((Math.abs(userLocation[1])-Math.abs(value[1]))**2))**(0.5);
                 closest = key;
             }
         }
