@@ -2,7 +2,6 @@
 const locationHash = new Map();
 locationHash.set("SSB", [34.7252, -86.6405]);
 locationHash.set("NCH", [34.733717, -86.640018]);
-locationHash.set("NCH",[34.733717, -86.640018]);
 locationHash.set("NUR", [34.730075, -86.638686]);
 locationHash.set("OKT", [34.719024, -86.646399]);
 locationHash.set("OPB", [34.722765, -86.638527]);
