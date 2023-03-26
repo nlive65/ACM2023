@@ -186,7 +186,24 @@ var marker = L.marker([34.7252, -86.6405],
 
 map.on('locationfound',(e)=>{ //Callback for when the location is found 
     L.marker(e.latlng,{icon: L.icon({iconUrl: "./assets/youAreHere.png", iconSize: [21,21]})}).addTo(map).bindPopup("Your location");//Put you on the map :D
-    userLocation = e.latlng;//save the coordinates to a variable
+    userLocation = [e.latlng.lat,e.latlng.lng];//save the coordinates to a variable
+    closest = "SSB";
+    for(let [key, value] of locationHash){
+        if(key==="SSB"){
+            min = ((userLocation[0]-value[0])**2+(userLocation[1]-value[1])**2)**(0.5);
+        } 
+        else{
+            if(Math.min(min,((userLocation[0]-value[0])**2+(userLocation[1]-value[1])**2)**(0.5))!=min){
+                min =((userLocation[0]-value[0])**2+(userLocation[1]-value[1])**2)**(0.5);
+                closest = key;
+            }
+            console.log(closest);
+        }
+       
+        
+
+    }
+    
 });
 
 map.on('locationerror',(e)=>alert(e.message));
