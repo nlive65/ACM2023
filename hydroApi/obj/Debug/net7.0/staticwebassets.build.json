@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "8UxtMJCxR86lJeNS9b9bSkOCLoEDFra9VbNc1WkyBpM=",
+  "Source": "hydroApi",
+  "BasePath": "_content/hydroApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

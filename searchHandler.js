@@ -3,7 +3,7 @@ document.getElementById("search").onkeyup = ()=>{
     input = document.getElementById("search");
     filter = input.value.toUpperCase();
     div = document.getElementById("borger");
-    a = div.getElementsByTagName("a");
+    a = div.getElementsByTagName("button");
     for (i = 0; i < a.length; i++) {
       txtValue = a[i].textContent || a[i].innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {

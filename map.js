@@ -1,4 +1,5 @@
 // initialize map
+const stationUri = 'hydorApi/station';
 const locationHash = new Map();
 locationHash.set("SSB", [34.7252, -86.6405]);
 locationHash.set("NCH", [34.733717, -86.640018]);
