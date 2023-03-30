@@ -365,7 +365,7 @@ function onClick(name) {
         info_box.appendChild(img1);
     }
     else if(name==="eng"){
-        console.log("clicked opb");
+        console.log("clicked eng");
         var img1 = document.createElement('img');
         img1.src= 'assets/station-photos/ENG1.png';
         var info_box = document.getElementById("info");
@@ -373,9 +373,12 @@ function onClick(name) {
         info_box.appendChild(img1);
     }
     else if(name==='nur'){
-        console.log("clicked opb");
+        console.log("clicked nur");
+        var img1 = document.createElement('img');
+        img1.src= 'assets/station-photos/NUR.png';
         var info_box = document.getElementById("info");
-        info_box.innerHTML = "<h3>Nursing Building</h3><br><b>No locations Avaliable";
+        info_box.innerHTML = "<h3>Nursing Building</h3><br><b>First floor<br>Temperature: cool<br>Filter Status: green";
+        info_box.appendChild(img1);
     }
     else if(name==='ff'){
         console.log("clicked ff");
