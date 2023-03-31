@@ -8,9 +8,8 @@ public class user
     public bool signUp {get; set;}
     public string? residence {get;set;}
     public int score {get;set;}
-
-    private void validateUser(string attempt){
-        
+    public bool validateUser(string attempt){
+        return(attempt.Equals(this.password));
     }
 
 }

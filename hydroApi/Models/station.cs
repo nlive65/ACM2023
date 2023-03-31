@@ -10,6 +10,8 @@ public class station
 
     public float lat {get;set;}
 
-    private int averageRating {get;set;}   
+    public int displayRating {get; set;}
+
+    
 
 }
