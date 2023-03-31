@@ -1,12 +1,74 @@
 CREATE TABLE WaterStations(
+    BuildingName VARCHAR(255),
     ID INT,
     LNG FLOAT,
     LAT FLOAT,
     AVERAGE INT,
-    Temp INT,
-    BuildingName VARCHAR(255)
+    Temp VARCHAR(5),   
+    Rh BIT
 );
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(1,'SSB',34.7252,-86.6405,0,'Warm',0)
 
-INSERT INTO WaterStations(LNG,LAT,AVERAGE,Temp,BuildingName)
-VALUES(34.7252,-86.6405,0,70,'SSB')
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(2,'NCH',34.733717,-86.640018,0,'Warm',1)
 
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(3,'NUR',34.730075,-86.6368686,0,'Cool',0)
+
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(4,'OKT',34.719024,-86.646399,0,'Warm',0)
+
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(5,'OPB',34.722765, -86.638527,0,'Warm',0)
+
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(6,'ROB',34.730913, -86.638731,0,'Warm',0)
+
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(7,'LIB',34.729370, -86.639986,0,'Warm',0)
+
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(8,'SPR',34.731265, -86.636767,0,'Warm',0)
+
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(9,'SST',34.725790, -86.641162,0,'Warm',0)
+
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(10,'UFC',34.726598, -86.636719,0,'Warm',0)
+
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(11,'WIL',34.729230, -86.641442,0,'Warm',0)
+
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(12,'BAB',34.728245, -86.641435,0,'Warm',0)
+
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(13,'BEV',34.731218, -86.64289602,0,'Warm',1)
+
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(14,'CCH',34.730006, -86.641792,0,'Warm',1)
+
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(15,'CTC',34.7308, -86.641401,0,'Warm',0)
+
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(16,'CU',34.72713, -86.640046,0,'Warm',0)
+
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(17,'CVA',34.724393, -86.638828,0,'Warm',1)
+
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(18,'CVO',34.724692, -86.638797,0,'Warm',1)
+
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(19,'ENG',34.722606, -86.640502,0,'Warm',0)
+
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(20,'FF',34.733272, -86.640775,0,'Warm',1)
+
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(21,'MOR',34.733193, -86.641912,0,'Warm',0)
+
+INSERT INTO WaterStations(ID,BuildingName,LNG,LAT,AVERAGE,Temp,Rh)
+VALUES(22,'MSB',34.721949, -86.638094,0,'Warm',0)
